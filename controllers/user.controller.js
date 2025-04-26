@@ -1,5 +1,10 @@
 const Users = require("../model/user.model");
 
+exports.adminHome = async(req, res) => {
+    console.log("Hello from backend");
+    res.status(200).json({message : "success"});
+}
+
 exports.createUsers = async (req, res) => {
     console.log("Incoming data:", req.body);  // This should show your frontend payload
 
