@@ -16,7 +16,7 @@ export const generateToken = (user) => {
     expiresIn = "7d";
   }
   if (user.role === "buyer") {
-    expiresIn = "60m";
+    expiresIn = "20m";
   }
   return jwt.sign({ id: user.id, email: user.email, role: user.role }, token, {
     expiresIn,

@@ -15,7 +15,7 @@ export const authenticate = async (req, res, next) => {
     }
 
     const userId = decoded.id;
-    const user = await User.findOne({ _id: userId });
+    const user = await User.findOne({ id: userId });
     if (!user) {
       return res.status(400).json({ message: "User not found" });
     }

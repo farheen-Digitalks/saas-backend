@@ -5,6 +5,7 @@ export const createProductHandler = async (req, res) => {
     const { name, description, price } = req.body;
 
     const product = await Product(req.body);
+    await product.save();
     return res
       .status(201)
       .json({ message: "Product added successfully", product });
