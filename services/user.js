@@ -1,33 +1,39 @@
-import User from "../models/user.js";
+import User from "../models/platformUser.js";
 import bcrypt from "bcryptjs";
 
 export const createUser = async (data) => {
-  const { email, password, role } = data;
+  const { name, email, password, role } = data;
 
   const pass = await bcrypt.genSalt(10);
   const hashedPass = await bcrypt.hash(password, pass);
 
   const user = User.create({
+    name: name,
     email: email,
     password: hashedPass,
     role: role,
+    companyId: data.companyId,
   });
 
   return user;
 };
 
-export const getUsers = async () => {
-  return await User.find();
+export const getUsers = async (id) => {
+  return await User.find({ companyId: id });
 };
 
-export const getUser = async (id) => {
-  return await User.findById(id);
+export const getUserByEmail = async (email, companyId) => {
+  return await User.findOne({ email, companyId });
 };
 
-export const updateUser = async (id) => {
-  return await User.findByIdAndUpdate(id, data, { new: true });
+export const getUser = async (id, companyId) => {
+  return await User.findOne({ _id: id, companyId });
 };
 
-export const deleteUser = async (id) => {
-  return await User.findByIdAndDelete(id);
+export const updateUser = async (id, data, companyId) => {
+  return await User.findByIdAndUpdate({ _id: id, companyId }, data, { new: true });
+};
+
+export const deleteUser = async (id, companyId) => {
+  return await User.findOneAndDelete({ _id: id, companyId });
 };

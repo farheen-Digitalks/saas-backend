@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import createSuperAdmin from "../seeder/superadmin.js";
 
 export const connectDB = async () => {
   try {
@@ -7,6 +8,7 @@ export const connectDB = async () => {
       useUnifiedTopology: true,
     });
     console.log("Database is connected successfully");
+    await createSuperAdmin();
   } catch (error) {
     console.error(error);
     process.exit(1);

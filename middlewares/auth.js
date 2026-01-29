@@ -1,5 +1,5 @@
-import { verifyToken } from "./jwt.js";
-import User from "../models/user.js";
+import { verifyToken } from "../utils/jwt.js";
+
 
 export const authenticate = async (req, res, next) => {
   try {
@@ -14,13 +14,7 @@ export const authenticate = async (req, res, next) => {
       return res.status(404).json({ message: "Invalid token" });
     }
 
-    const userId = decoded.id;
-    const user = await User.findOne({ id: userId });
-    if (!user) {
-      return res.status(400).json({ message: "User not found" });
-    }
-
-    req.user = user;
+    req.user = decoded;
     next();
   } catch (error) {
     return res.status(500).json({ message: error.message });

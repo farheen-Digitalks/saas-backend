@@ -1,16 +1,18 @@
 import express from "express";
-import dotenv from "dotenv";
 import cors from "cors";
 import { connectDB } from "./config/connecDb.js";
-dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+connectDB();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3001", // frontend
+    credentials: true, // ⭐ required
+  })
+);
 app.use(express.json());
 
-connectDB();
 
 // app.post("/api/users", (req, res) => {
 //   const user = req.body;
@@ -19,9 +21,10 @@ connectDB();
 // });
 
 import allRoutes from "./routes/index.js";
-
 app.use("/api", allRoutes);
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.get("/", (req, res) => {
+  res.send("SaaS API running");
 });
+
+export default app;
