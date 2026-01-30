@@ -7,7 +7,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN, // frontend
+    origin: "*", // frontend
     credentials: true, // ⭐ required
   })
 );

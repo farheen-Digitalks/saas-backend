@@ -15,11 +15,16 @@ const trialRequestSchema = new mongoose.Schema(
     },
     company_email: {
       type: String,
-      required: true
+      required: true,
     },
     password: { type: String },
     message: {
       type: String,
+    },
+    plan: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Plan",
+      default: "Trial",
     },
     status: {
       type: String,
