@@ -27,4 +27,9 @@ app.get("/", (req, res) => {
   res.send("SaaS API running");
 });
 
+app.get("/health", (req, res) => {
+  res.send("OK");
+});
+
+
 export default app;
