@@ -4,7 +4,6 @@ import {
   deleteUserHandler,
   getUserByIdHandler,
   getUsersHandler,
-  loginUserHandler,
   updateUserHandler,
 } from "../controllers/user.js";
 import { authenticate } from "../middlewares/auth.js";
@@ -17,6 +16,5 @@ router.post("/create-user", isAdmin, createUserHandler);
 router.get("/:id", getUserByIdHandler);
 router.put("/:id", updateUserHandler);
 router.delete("/:id", deleteUserHandler);
-router.post("/login", loginUserHandler);
 
 export default router;
