@@ -5,6 +5,7 @@ export const createPaymentOrder = async (req, res) => {
         const data = await paymentService.createOrder({
             companyId: req.user.companyId,
             planId: req.body.planId
+            
         });
 
         res.status(200).json({
