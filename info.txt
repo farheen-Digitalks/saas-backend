@@ -1,0 +1,158 @@
+
+===============================
+SAAS BACKEND PROJECT FLOW
+===============================
+
+PROJECT TYPE:
+-------------
+Multi-Tenant SaaS Backend Architecture
+
+TECH STACK:
+-----------
+- Node.js
+- Express.js
+- MongoDB
+- JWT Authentication
+- RBAC (Role Based Access Control)
+
+====================================================
+MULTI-TENANT SAAS FLOW
+====================================================
+
+PLATFORM USER:
+--------------
+Internal SaaS users.
+
+Examples:
+- Super Admin
+- Sales Team
+- Support Team
+
+Can manage:
+- All companies
+- Subscriptions
+- Payments
+- Products
+- Trials
+
+----------------------------------------------------
+
+COMPANY USER:
+-------------
+Belongs to specific company only.
+
+Examples:
+- HR
+- Employee
+- Manager
+- Accountant
+
+Can access:
+Only their company data.
+
+====================================================
+ROLE & PERMISSION FLOW
+====================================================
+
+Platform creates permissions
+        ↓
+Company creates roles
+        ↓
+Permissions assigned to roles
+        ↓
+Users assigned roles
+
+Example:
+
+Role:
+- HR Manager
+
+Permissions:
+- CREATE_EMPLOYEE
+- UPDATE_EMPLOYEE
+- VIEW_EMPLOYEE
+
+====================================================
+SUBSCRIPTION FLOW
+====================================================
+
+Company selects plan
+        ↓
+Subscription created
+        ↓
+Payment gateway
+        ↓
+Payment verification
+        ↓
+Subscription activated
+        ↓
+Modules enabled
+
+====================================================
+SECURITY FLOW
+====================================================
+
+Request
+   ↓
+JWT Authentication
+   ↓
+Role Validation
+   ↓
+Permission Check
+   ↓
+Subscription Check
+   ↓
+API Access
+
+====================================================
+RECOMMENDED FUTURE MODULES
+====================================================
+
+- subscriptions
+- payments
+- invoices
+- plans
+- auditLogs
+- notifications
+- activityLogs
+- coupons
+- webhooks
+
+====================================================
+PROFESSIONAL SAAS ARCHITECTURE
+====================================================
+
+Auth
+   ↓
+Tenant Identification
+   ↓
+Subscription Validation
+   ↓
+RBAC
+   ↓
+Module Access
+   ↓
+Business Logic
+   ↓
+Audit Logging
+
+====================================================
+SUMMARY
+====================================================
+
+This project is a:
+
+Multi-Tenant Modular SaaS Backend
+
+Features:
+- Authentication
+- Role-Based Access
+- Multi-company architecture
+- Subscription management
+- Payment integration
+- Module-based access
+- Protected APIs
+- Scalable backend structure
+
+Architecture Pattern:
+Route → Middleware → Controller → Service → Model → Database
