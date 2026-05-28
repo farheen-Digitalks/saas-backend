@@ -9,4 +9,9 @@ router.post(
     createPaymentOrder
 );
 
+router.post(
+    "/verify",
+    verifyPayment
+);
+
 export default router;
