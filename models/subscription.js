@@ -14,12 +14,6 @@ const subscriptionSchema = new mongoose.Schema(
       required: true,
     },
 
-    status: {
-      type: String,
-      enum: ["trial", "active", "expired", "cancelled"],
-      default: "trial",
-    },
-
     startDate: {
       type: Date,
       default: Date.now,
@@ -30,9 +24,10 @@ const subscriptionSchema = new mongoose.Schema(
       required: true,
     },
 
-    trialEndsAt: {
-      type: Date,
-      default: null,
+    status: {
+      type: String,
+      enum: ["pending", "active", "expired", "cancelled"],
+      default: "pending",
     },
 
     autoRenew: {
@@ -46,15 +41,21 @@ const subscriptionSchema = new mongoose.Schema(
       default: "manual",
     },
 
-    paymentId: {
+    paymentStatus: {
       type: String,
-      default: null,
+      enum: ["paid", "unpaid", "failed"],
+      default: "UNPAID"
     },
 
     amountPaid: {
       type: Number,
-      default: 0,
+      required: true
     },
+
+    modules: [{
+      type: String
+    }]
+
   },
   { timestamps: true },
 );
