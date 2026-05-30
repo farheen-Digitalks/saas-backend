@@ -44,10 +44,10 @@ const subscriptionSchema = new mongoose.Schema(
     paymentStatus: {
       type: String,
       enum: ["paid", "unpaid", "failed"],
-      default: "UNPAID"
+      default: "unpaid"
     },
 
-    amountPaid: {
+    amount: {
       type: Number,
       required: true
     },
@@ -60,4 +60,5 @@ const subscriptionSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-export default mongoose.model("Subscription", subscriptionSchema);
+const Subscription = mongoose.model("Subscription", subscriptionSchema);
+export default Subscription;
