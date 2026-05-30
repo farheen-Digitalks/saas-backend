@@ -3,6 +3,7 @@ const MODULES = {
   PERMISSION: "permission",
   ROLE: "role",
   USER: "user",
+  PLAN: "plan",
 };
 
 const ACTIONS = {
