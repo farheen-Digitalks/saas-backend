@@ -5,12 +5,19 @@ const planSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      unique: true, 
+      unique: true,
     },
+
+    description: String,
 
     price: {
       type: Number,
-      required: true, 
+      required: true,
+    },
+
+    durationInDays: {
+      type: Number,
+      required: true
     },
 
     billingCycle: {
@@ -19,8 +26,8 @@ const planSchema = new mongoose.Schema(
       default: "monthly",
     },
 
-    maxEmployees: {
-      type: Number, 
+    maxUsers: {
+      type: Number,
       default: null,
     },
 
@@ -35,16 +42,6 @@ const planSchema = new mongoose.Schema(
         type: String, // "Email notifications", "Reports", etc.
       },
     ],
-
-    isTrialAvailable: {
-      type: Boolean,
-      default: false,
-    },
-
-    trialDays: {
-      type: Number,
-      default: 0,
-    },
 
     isActive: {
       type: Boolean,
