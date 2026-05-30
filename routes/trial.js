@@ -1,5 +1,5 @@
 import express from "express";
-import { createTrialRequest, getRequests } from "../controllers/trialRequest.js";
+import { createTrialRequest, getRequests, loginTrials } from "../controllers/trialRequest.js";
 import { authenticate } from "../middlewares/auth.js";
 import { isAdmin } from "../middlewares/checkAdmin.js";
 const router = express.Router();
@@ -7,5 +7,6 @@ const router = express.Router();
 
 router.get("/", authenticate, isAdmin, getRequests);
 router.post("/create-trial", createTrialRequest);
+router.post("/login", loginTrials);
 
 export default router;
