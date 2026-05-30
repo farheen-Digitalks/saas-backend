@@ -156,3 +156,29 @@ Features:
 
 Architecture Pattern:
 Route → Middleware → Controller → Service → Model → Database
+
+TrialRequest
+    ↓
+TrialUser
+    ↓
+Trial Login
+    ↓
+Trial Expire
+    ↓
+Choose Plan
+    ↓
+Payment
+    ↓
+Create Company
+    ↓
+Create PlatformUser
+    ↓
+Create Subscription
+    ↓
+Create Default Role
+    ↓
+Assign Permissions
+    ↓
+Platform Login
+    ↓
+Create Users

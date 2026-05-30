@@ -26,10 +26,11 @@ const trialRequestSchema = new mongoose.Schema(
       ref: "Plan",
       default: null,
     },
+    trial_period: { type: Number, default: 7 },
     status: {
       type: String,
-      enum: ["pending", "approved", "rejected"],
-      default: "pending",
+      enum: ["trial", "converted", "cancelled"],
+      default: "trial",
     },
   },
   { timestamps: true },
