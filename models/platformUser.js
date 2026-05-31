@@ -11,6 +11,7 @@ const platformUserSchema = new mongoose.Schema(
       ref: "Company",
     },
     isSuperAdmin: { type: Boolean, default: false },
+    isAdmin: { type: Boolean, default: false },
     phone: { type: String },
     age: { type: Number },
     gender: { type: String },

@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Company",
     },
-    isSuperAdmin: { type: Boolean, default: false },
+    isAdmin: { type: Boolean, default: false },
     phone: { type: String },
     age: { type: Number },
     gender: { type: String },
