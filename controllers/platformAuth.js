@@ -19,6 +19,7 @@ export const login = async (req, res) => {
       companyId: user.companyId,
       role: user.role,
       isSuperAdmin: user.isSuperAdmin,
+      isAdmin: user.isAdmin
     },
     process.env.JWT_SECRET_KEY,
   );
@@ -29,6 +30,7 @@ export const login = async (req, res) => {
       JSON.stringify({
         id: user._id,
         isSuperAdmin: user.isSuperAdmin,
+        isAdmin: user.isAdmin
       }),
       {
         httpOnly: true,
@@ -51,6 +53,7 @@ export const login = async (req, res) => {
         companyId: user.companyId,
         role: user.role,
         isSuperAdmin: user.isSuperAdmin,
+        isAdmin: user.isAdmin
       },
       token,
     });

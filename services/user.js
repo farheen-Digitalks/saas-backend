@@ -1,5 +1,6 @@
-import User from "../models/platformUser.js";
+
 import bcrypt from "bcryptjs";
+import User from "../models/user.js";
 
 export const createUser = async (data) => {
   const { name, email, password, role } = data;

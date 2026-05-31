@@ -6,7 +6,7 @@
 // };
 
 export const isAdmin = (req, res, next) => {
-  if (!req.user.isSuperAdmin) {
+  if (!req.user.isAdmin) {
     return res
       .status(403)
       .json({ msg: "Only admin is authorized to view requests." });

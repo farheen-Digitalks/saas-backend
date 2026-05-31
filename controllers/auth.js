@@ -9,7 +9,7 @@ import PlatformUser from "../models/platformUser.js";
 
 export const register = async (req, res) => {
   try {
-    const { companyName, companyEmail, name, email, password, role } = req.body;
+    const { companyName, companyEmail, name, email, password, role, isAdmin } = req.body;
 
     const existingCompany = await getCompanyByEmail(companyEmail);
     if (existingCompany) {
@@ -33,6 +33,7 @@ export const register = async (req, res) => {
       email,
       password: hashedPassword,
       role,
+      isAdmin
     });
 
     if (admin) {
