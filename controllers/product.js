@@ -61,3 +61,73 @@ export const deleteProductHandler = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+
+// import Blog from "../models/blog.js";
+
+// export const createBlog = async (req, res) => {
+
+//   try {
+
+//     const blog = await Blog.create({
+//       title: req.body.title,
+//       content: req.body.content,
+//       image: req.file?.filename,
+//       author: req.user.id
+//     });
+
+//     res.status(201).json({
+//       success: true,
+//       blog
+//     });
+
+//   } catch (error) {
+
+//     res.status(500).json({
+//       message: error.message
+//     });
+
+//   }
+// };
+
+// import Blog from "../models/blog.js";
+
+// export const updateBlog = async (req, res) => {
+
+//   try {
+
+//     const blog = await Blog.findById(
+//       req.params.id
+//     );
+
+//     if (!blog) {
+//       return res.status(404).json({
+//         message: "Blog not found"
+//       });
+//     }
+
+//     blog.title =
+//       req.body.title || blog.title;
+
+//     blog.content =
+//       req.body.content || blog.content;
+
+//     if (req.file) {
+//       blog.image = req.file.filename;
+//     }
+
+//     await blog.save();
+
+//     res.status(200).json({
+//       success: true,
+//       blog
+//     });
+
+//   } catch (error) {
+
+//     res.status(500).json({
+//       message: error.message
+//     });
+
+//   }
+// };
