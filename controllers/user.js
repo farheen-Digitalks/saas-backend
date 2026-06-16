@@ -46,6 +46,7 @@ export const createUserHandler = async (req, res) => {
 
 export const getUsersHandler = async (req, res) => {
   try {
+    console.log(req.user);
     const companyId = req.user.companyId;
     const users = await getUsers(companyId);
     return res.status(200).json(users);
@@ -100,7 +101,7 @@ export const deleteUserHandler = async (req, res) => {
 export const loginUserHandler = async (req, res) => {
   try {
     const { email, password } = req.body;
-    if(!email || !password){
+    if (!email || !password) {
       return res.status(400).json({ message: "Email and password are required" });
     }
 

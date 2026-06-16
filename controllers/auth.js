@@ -9,7 +9,7 @@ import PlatformUser from "../models/platformUser.js";
 
 export const register = async (req, res) => {
   try {
-    const { companyName, companyEmail, name, email, password, role, isAdmin } = req.body;
+    const { companyName, companyEmail, name, email, password } = req.body;
 
     const existingCompany = await getCompanyByEmail(companyEmail);
     if (existingCompany) {
@@ -28,12 +28,9 @@ export const register = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const admin = await PlatformUser.create({
-      // companyId: company._id,
       name,
       email,
-      password: hashedPassword,
-      role,
-      isAdmin
+      password: hashedPassword
     });
 
     if (admin) {

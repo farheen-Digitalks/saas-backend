@@ -20,7 +20,7 @@ export const createUser = async (data) => {
 };
 
 export const getUsers = async (id) => {
-  return await User.find({ companyId: id });
+  return await User.find({ companyId: id }).populate("role");
 };
 
 export const getUserByEmail = async (email, companyId) => {
